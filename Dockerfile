@@ -3,7 +3,7 @@ MAINTAINER Chance Hudson
 
 ENV SRC_DIR /go/src/github.com/ipfs/go-ipfs
 
-RUN apk add --no-cache git make bash \
+RUN apk add --no-cache git make bash gcc \
   && go get -u github.com/whyrusleeping/gx
 
 # Fixes an issue with symlinked binaries not playing well with alpine
