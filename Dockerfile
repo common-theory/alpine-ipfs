@@ -13,3 +13,8 @@ RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 RUN git clone --branch v0.4.17 https://github.com/ipfs/go-ipfs.git $SRC_DIR \
   && cd $SRC_DIR \
   && make build
+
+FROM alpine:3.8
+
+ENV SRC_DIR /go/src/github.com/ipfs/go-ipfs
+COPY --from=0 $SRC_DIR/cmd/ipfs/ipfs /usr/local/bin/ipfs
