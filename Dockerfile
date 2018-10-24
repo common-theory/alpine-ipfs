@@ -20,7 +20,3 @@ RUN apk add --no-cache bash
 
 ENV SRC_DIR /go/src/github.com/ipfs/go-ipfs
 COPY --from=0 $SRC_DIR/cmd/ipfs/ipfs /usr/local/bin/ipfs
-
-COPY ./entrypoint.sh /
-
-ENTRYPOINT ["/entrypoint.sh"]
