@@ -2,55 +2,16 @@
 
 An alpine docker image with [go-ipfs](https://github.com/ipfs/go-ipfs) prebuilt.
 
-## Helpful IPFS hashes
+## Tags
 
-### Ethereum Networks
+### `latest`
 
-Various testnets are stored on IPFS for quick access without requiring block synchronization. Instead of replaying transactions during synchronization the data is simply downloaded.
+The latest build from the latest release of IPFS.
 
-Each directory contains a full node synced up to **October 24, 2018**.
+### `pin`
 
-Base directory hash: `/ipfs/Qme7GCRRizTN5G3XJqcFnfmQtjJ7Bh5YDCqM8Zg2nJSnvN`
+Built on top of `latest` with an entrypoint script that pins certain CIDS. Useful for spinning up swarms of machines, [documentation here](https://github.com/common-theory/alpine-ipfs/tree/master/pin).
 
-This is also [dnslinked](https://docs.ipfs.io/guides/concepts/dnslink/) to `blockchains.ctheory.io`. This is likely to be more up to date, and should be used with `ipns`.
+### `vX.X.X`
 
-#### Directory Tree
-```sh
-blockchains/
-└── ethereum
-    ├── homestead
-    │   ├── geth
-    │   │   ├── chaindata
-    │   │   ├── ethash
-    │   │   └── nodes
-    │   └── keystore
-    ├── rinkeby
-    │   ├── geth
-    │   │   ├── chaindata
-    │   │   └── nodes
-    │   └── keystore
-    └── ropsten
-        ├── geth
-        │   ├── chaindata
-        │   ├── ethash
-        │   └── nodes
-        └── keystore
-```
-
-#### Chain Paths
-
-These paths are intended to be used as the `datadir` with `geth`.
-- Homestead - `/ipns/blockchains.ctheory.io/ethereum/homestead`
-- Ropsten (after constantinople fork) - `/ipns/blockchains.ctheory.io/ethereum/ropsten`
-- Rinkeby - `/ipns/blockchains.ctheory.io/ethereum/rinkeby`
-
-These can be used to initialize a node by first downloading the data from IPFS, then running `geth` without a genesis block.
-
-Example:
-
-```sh
-# Assuming an IPFS daemon is running, and you've got enough storage space
-ipfs get /ipns/blockchains.ctheory.io/ethereum/rinkeby -o ./rinkeby
-# Now we've got a data directory that's decently up to date, start syncing
-geth --rinkeby --datadir ./rinkeby
-```
+Specific version tags are available for go-ipfs releases, [full list here](https://hub.docker.com/r/ctheory/alpine-ipfs/tags/).
