@@ -17,7 +17,5 @@ RUN git clone --branch $IPFS_TAG https://github.com/ipfs/go-ipfs.git $SRC_DIR \
 
 FROM alpine:3.8
 
-RUN apk add --no-cache bash
-
 ENV SRC_DIR /go/src/github.com/ipfs/go-ipfs
 COPY --from=0 $SRC_DIR/cmd/ipfs/ipfs /usr/local/bin/ipfs
