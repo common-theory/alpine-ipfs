@@ -3,7 +3,7 @@
 set -e
 
 # Detect custom IPFS_PATH configurations
-if [ -z "$IPFS_PATH"]; then
+if [[ -z "$IPFS_PATH" ]]; then
   IPFS_PATH="/root/.ipfs"
 fi
 
@@ -21,20 +21,18 @@ fi
 # Otherwise spawn a daemon, pin, kill the daemon, start IPFS
 
 # Start an ipfs daemon
-ipfs daemon &
+ipfs daemon --migrate &
 
 # Store the PID so we can kill it later
 DAEMON_PID=$(echo $!)
 
 # Wait for the daemon to initialize
-sleep 15
-
-cids=("$CIDS_TO_PIN")
+sleep 10
 
 # Pin all the supplied cids
-for cid in $cids; do
-  echo "pinning $cid"
-  ipfs pin add "$cid" --progress
+for CID in $CIDS_TO_PIN; do
+  echo "pinning $CID"
+  ipfs pin add --progress $CID
 done
 
 kill $DAEMON_PID
