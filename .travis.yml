@@ -22,6 +22,6 @@ jobs:
         - ./build_version_tags.sh
 stages:
   - name: versions
-    if: commit_message =~ /\[build versions\]/
+    if: commit_message =~ /\[build versions\]/ OR branch = legacy-builds
   - name: latest
-    if: brance == master
+    if: branch = master
