@@ -21,6 +21,6 @@ build_push_version ()
 VERSIONS=("v0.4.17 v0.4.16 v0.4.15 v0.4.14")
 
 # Build and push each tag
-for version in $VERSIONS; do
-  build_push_version $version
+for VERSION in $VERSIONS; do
+  build_push_version $VERSION
 done

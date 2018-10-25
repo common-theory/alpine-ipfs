@@ -25,7 +25,7 @@ jobs:
     - stage: versions
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - ./build-releases.sh
+        - ./build_version_tags.sh
 stages:
   - name: versions
     if: commit_message =~ /\[build versions\]/
