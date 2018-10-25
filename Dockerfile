@@ -1,6 +1,7 @@
 FROM golang:1.11.1-alpine3.8
 MAINTAINER Chance Hudson
 
+# This is set in the CI as well, be sure to update in both places
 ARG IPFS_TAG="v0.4.17"
 
 ENV SRC_DIR /go/src/github.com/ipfs/go-ipfs
