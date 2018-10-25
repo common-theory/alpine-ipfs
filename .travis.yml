@@ -23,4 +23,5 @@ jobs:
 stages:
   - name: versions
     if: commit_message =~ /\[build versions\]/
-  - latest
+  - name: latest
+    if: brance == master
