@@ -1,4 +1,4 @@
-FROM golang:1.11.1-alpine3.8
+FROM golang:1.10.4-alpine3.8
 MAINTAINER Chance Hudson
 
 # This is set in the CI as well, be sure to update in both places
