@@ -1,5 +1,7 @@
 #! /bin/sh
 
+set -e
+
 # Detect custom IPFS_PATH configurations
 if [ -z "$IPFS_PATH"]; then
   IPFS_PATH="/root/.ipfs"
