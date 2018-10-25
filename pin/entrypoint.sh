@@ -3,7 +3,7 @@
 set -e
 
 # Conditionally initialize IPFS
-if [ -z "$(ls -A /root/.ipfs)" ]; then
+if [ -z "$(ls -A /root/.ipfs > /dev/null)" ]; then
   ipfs init
 fi
 
