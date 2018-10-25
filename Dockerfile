@@ -1,8 +1,9 @@
 FROM golang:1.11.1-alpine3.8
 MAINTAINER Chance Hudson
 
+ARG IPFS_TAG="v0.4.17"
+
 ENV SRC_DIR /go/src/github.com/ipfs/go-ipfs
-ENV IPFS_TAG "v0.4.17"
 
 RUN apk add --no-cache git make bash gcc musl-dev \
   && go get -u github.com/whyrusleeping/gx
