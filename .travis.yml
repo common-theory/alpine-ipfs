@@ -18,7 +18,12 @@ jobs:
         - cd pin
         - docker build . -t ctheory/alpine-ipfs:pin
         - docker push ctheory/alpine-ipfs:pin
-
+    - stage: versions
+      script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - ./build-releases.sh
 stages:
+  - name: versions
+    if: commit_message =~ /\[build versions\]/
   - latest
   - pin
