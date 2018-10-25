@@ -20,7 +20,7 @@ build_push_version ()
 
 # To build versions earlier than v0.4.14 the base image needs
 # to be switched to golang:1.10.4-alpine3.8
-VERSIONS=("v0.4.17 v0.4.16 v0.4.15 v0.4.14")
+VERSIONS=("v0.4.14 v0.4.15 v0.4.16 v0.4.17")
 
 # Build and push each tag
 for VERSION in $VERSIONS; do
