@@ -15,3 +15,5 @@ Built on top of `latest` with an entrypoint script that pins certain CIDS. Usefu
 ### `vX.X.X`
 
 Specific version tags are available for go-ipfs releases, [full list here](https://hub.docker.com/r/ctheory/alpine-ipfs/tags/).
+
+To build all version tags using travis include `[build versions]` in the commit message.
