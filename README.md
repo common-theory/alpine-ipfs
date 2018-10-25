@@ -2,6 +2,12 @@
 
 An alpine docker image with [go-ipfs](https://github.com/ipfs/go-ipfs) prebuilt.
 
+## Overview
+
+IPFS defaults to `/root/.ipfs` for storing data. Custom data directories are supported via the `IPFS_PATH` environment variable. The image entrypoint will initialize IPFS if no data directory is detected.
+
+The default command is `ipfs daemon --migrate`.
+
 ## Tags
 
 ### `latest`
