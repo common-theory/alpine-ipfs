@@ -3,7 +3,7 @@
 set -e
 
 # Conditionally initialize IPFS
-if [ -z "$(ls -A /root/.ipfs > /dev/null)" ]; then
+if [ -z "$(ls -A /root/.ipfs 2> /dev/null)" ]; then
   ipfs init
 fi
 
@@ -13,8 +13,7 @@ ipfs daemon &
 DAEMON_PID=$(echo $!)
 
 if [ -z $CIDS_TO_PIN ]; then
-  # echo "received empty CIDS_TO_PIN"
-  # CIDS_TO_PIN="/ipfs/Qme7GCRRizTN5G3XJqcFnfmQtjJ7Bh5YDCqM8Zg2nJSnvN"
+  echo "received no CIDS_TO_PIN"
 else
   cids=("$CIDS_TO_PIN")
 
