@@ -26,6 +26,8 @@ COPY --from=0 $SRC_DIR/cmd/ipfs/ipfs /usr/local/bin/ipfs
 
 COPY ./start_ipfs.sh /
 
+EXPOSE 4001 8080 5001
+
 ENTRYPOINT ["/start_ipfs.sh"]
 
 CMD ["daemon", "--migrate"]
