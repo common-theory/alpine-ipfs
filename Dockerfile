@@ -21,3 +21,9 @@ FROM alpine:3.8
 
 ENV SRC_DIR /go/src/github.com/ipfs/go-ipfs
 COPY --from=0 $SRC_DIR/cmd/ipfs/ipfs /usr/local/bin/ipfs
+
+COPY ./start_ipfs.sh /
+
+ENTRYPOINT ["/start_ipfs.sh"]
+
+CMD ["daemon", "--migrate"]
