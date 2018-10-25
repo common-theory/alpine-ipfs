@@ -1,6 +1,6 @@
 # alpine-ipfs [![Build Status](https://travis-ci.org/common-theory/alpine-ipfs.svg?branch=master)](https://travis-ci.org/common-theory/alpine-ipfs) [![](https://images.microbadger.com/badges/image/ctheory/alpine-ipfs.svg)](https://hub.docker.com/r/ctheory/alpine-ipfs/ "See docker hub for more information")
 
-An alpine docker image with ipfs prebuilt.
+An alpine docker image with [go-ipfs](https://github.com/ipfs/go-ipfs) prebuilt.
 
 ## Helpful IPFS hashes
 
@@ -10,13 +10,12 @@ Various testnets are stored on IPFS for quick access without requiring block syn
 
 Each directory contains a full node synced up to **October 24, 2018**.
 
-## TODO: Update this address
-Base directory hash: `/ipfs/QmdTFYrd5fYiTwnMaP5CeWmJq7EgoDTTfXxJsdnJPJpsy`
+Base directory hash: `/ipfs/Qme7GCRRizTN5G3XJqcFnfmQtjJ7Bh5YDCqM8Zg2nJSnvN`
 
 This is also [dnslinked](https://docs.ipfs.io/guides/concepts/dnslink/) to `blockchains.ctheory.io`. This is likely to be more up to date, and should be used with `ipns`.
 
-Tree output:
-```
+#### Directory Tree
+```sh
 blockchains/
 └── ethereum
     ├── homestead
@@ -38,13 +37,14 @@ blockchains/
         └── keystore
 ```
 
-Testnet Addresses:
+#### Chain Paths
 
-- Rinkeby - `/ipns/blockchains.ctheory.io/ethereum/rinkeby`
+These paths are intended to be used as the `datadir` with `geth`.
+- Homestead - `/ipns/blockchains.ctheory.io/ethereum/homestead`
 - Ropsten (after constantinople fork) - `/ipns/blockchains.ctheory.io/ethereum/ropsten`
-- Mainnet - `/ipns/blockchains.ctheory.io/ethereum/homestead`
+- Rinkeby - `/ipns/blockchains.ctheory.io/ethereum/rinkeby`
 
-These can be used to initialize a node by first downloading the data from IPFS, then running geth without a genesis block.
+These can be used to initialize a node by first downloading the data from IPFS, then running `geth` without a genesis block.
 
 Example:
 
