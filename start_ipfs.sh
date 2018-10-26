@@ -10,6 +10,7 @@ fi
 # Initialize IPFS if path is empty
 if [ -z "$(ls -A $IPFS_PATH 2> /dev/null)" ]; then
   ipfs init
+  ipfs config Addresses.Gateway /ip4/0.0.0.0/tcp/8080
 fi
 
 # If the CIDS_TO_PIN variable is not supplied let ipfs take over the process
