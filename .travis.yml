@@ -10,7 +10,7 @@ jobs:
     - stage: latest
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - export IPFS_VERSION="v0.4.17"
+        - export IPFS_VERSION="v0.4.18"
         - export VERSION_TAG="ctheory/alpine-ipfs:$IPFS_VERSION"
         - docker build . -t $VERSION_TAG --build-arg IPFS_TAG=$IPFS_VERSION
         - docker push $VERSION_TAG
